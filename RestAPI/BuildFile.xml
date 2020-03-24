@@ -4,8 +4,7 @@
 <use   name="FWCore/PluginManager"/>
 <use   name="FWCore/Utilities"/>
 <use   name="SonicCMS/Core"/>
-<use   name="tensorrtis"/>
-<use   name="protobuf-trt"/>
+<use   name="curl" />
 <export>
   <lib   name="1"/>
 </export>
