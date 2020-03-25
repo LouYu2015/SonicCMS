@@ -8,6 +8,7 @@ PKGS=()
 PKGS_ALL=(
 TensorRT \
 Brainwave \
+RestAPI \
 )
 SETUP=true
 
