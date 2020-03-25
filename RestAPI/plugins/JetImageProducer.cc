@@ -6,7 +6,7 @@
 #include <map>
 
 #include "SonicCMS/Core/interface/SonicEDProducer.h"
-#include "SonicCMS/TensorRT/interface/TRTClient.h"
+#include "SonicCMS/RestAPI/interface/TRTClient.h"
 #include "FWCore/Framework/interface/Event.h"
 #include "FWCore/ParameterSet/interface/ParameterSet.h"
 #include "FWCore/ParameterSet/interface/ConfigurationDescriptions.h"
