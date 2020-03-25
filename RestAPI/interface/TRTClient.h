@@ -16,11 +16,6 @@ class TRTClient : public Client {
 		//constructor
 		TRTClient(const edm::ParameterSet& params);
 
-		//accessors
-		unsigned ninput() const { return ninput_; }
-		unsigned noutput() const { return noutput_; }
-		unsigned batchSize() const { return batchSize_; }
-
 		//for fillDescriptions
 		static void fillPSetDescription(edm::ParameterSetDescription& iDesc) {
 			edm::ParameterSetDescription descClient;
