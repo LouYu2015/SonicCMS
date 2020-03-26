@@ -7,12 +7,12 @@ options = VarParsing("analysis")
 options.register("address", "prp-gpu-1.t2.ucsd.edu", VarParsing.multiplicity.singleton, VarParsing.varType.string)
 options.register("port", 8001, VarParsing.multiplicity.singleton, VarParsing.varType.int)
 options.register("timeout", 30, VarParsing.multiplicity.singleton, VarParsing.varType.int)
-options.register("params", "", VarParsing.multiplicity.singleton, VarParsing.varType.string)
-options.register("threads", 1, VarParsing.multiplicity.singleton, VarParsing.varType.int)
-options.register("streams", 0,    VarParsing.multiplicity.singleton, VarParsing.varType.int)
-options.register("batchsize", 10,    VarParsing.multiplicity.singleton, VarParsing.varType.int)
-#options.register("modelname","resnet50_netdef", VarParsing.multiplicity.singleton, VarParsing.varType.string)
-options.register("modelname","resnet50_ensemble", VarParsing.multiplicity.singleton, VarParsing.varType.string)
+# options.register("params", "", VarParsing.multiplicity.singleton, VarParsing.varType.string)
+# options.register("threads", 1, VarParsing.multiplicity.singleton, VarParsing.varType.int)
+# options.register("streams", 0,    VarParsing.multiplicity.singleton, VarParsing.varType.int)
+# options.register("batchsize", 10,    VarParsing.multiplicity.singleton, VarParsing.varType.int)
+# options.register("modelname","resnet50_netdef", VarParsing.multiplicity.singleton, VarParsing.varType.string)
+# options.register("modelname","resnet50_ensemble", VarParsing.multiplicity.singleton, VarParsing.varType.string)
 options.register("mode","Sync", VarParsing.multiplicity.singleton, VarParsing.varType.string)
 options.parseArguments()
 
@@ -55,13 +55,13 @@ process.jetImageProducer = cms.EDProducer(allowed_modes[options.mode],
     topN = cms.uint32(5),
     imageList = cms.string("../../Core/data/imagenet_classes.txt"),
     Client = cms.PSet(
-        ninput  = cms.uint32(15),
-        noutput = cms.uint32(1),
-        batchSize = cms.uint32(options.batchsize),
+        # ninput  = cms.uint32(15),
+        # noutput = cms.uint32(1),
+        # batchSize = cms.uint32(options.batchsize),
         address = cms.string(options.address),
         port = cms.uint32(options.port),
         timeout = cms.uint32(options.timeout),
-        modelName = cms.string(options.modelname),
+        # modelName = cms.string(options.modelname),
     )
 )
 
