@@ -13,7 +13,7 @@ options.register("streams", 0,    VarParsing.multiplicity.singleton, VarParsing.
 options.register("batchsize", 10,    VarParsing.multiplicity.singleton, VarParsing.varType.int)
 #options.register("modelname","resnet50_netdef", VarParsing.multiplicity.singleton, VarParsing.varType.string)
 options.register("modelname","resnet50_ensemble", VarParsing.multiplicity.singleton, VarParsing.varType.string)
-options.register("mode","Async", VarParsing.multiplicity.singleton, VarParsing.varType.string)
+options.register("mode","Sync", VarParsing.multiplicity.singleton, VarParsing.varType.string)
 options.parseArguments()
 
 if len(options.params)>0:
@@ -25,9 +25,7 @@ if len(options.params)>0:
 
 # check mode
 allowed_modes = {
-    "Async": "JetImageProducerAsync",
     "Sync": "JetImageProducerSync",
-    "PseudoAsync": "JetImageProducerPseudoAsync",
 }
 if options.mode not in allowed_modes:
     raise ValueError("Unknown mode: "+options.mode)
