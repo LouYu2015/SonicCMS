@@ -15,6 +15,7 @@ class TRTClient : public Client {
 	public:
 		//constructor
 		TRTClient(const edm::ParameterSet& params);
+		unsigned ninput() const {return 1;}
 		unsigned noutput() const {return 1000;}
 		unsigned batchSize() const {return 1;}
 
