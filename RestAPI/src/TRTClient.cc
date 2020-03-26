@@ -17,10 +17,10 @@ template <typename Client>
 void TRTClient<Client>::predictImpl(){
 
 	//blocking call
-	auto t2 = std::chrono::high_resolution_clock::now();
+	// auto t2 = std::chrono::high_resolution_clock::now();
 	// std::map<std::string, std::unique_ptr<nic::InferContext::Result>> results;
 	// nic::Error err0 = context_->Run(&results);
-	auto t3 = std::chrono::high_resolution_clock::now();
+	// auto t3 = std::chrono::high_resolution_clock::now();
 	// edm::LogInfo("TRTClient") << "Remote time: " << std::chrono::duration_cast<std::chrono::microseconds>(t3-t2).count();
 	// getResults(results.begin()->second);
 }
