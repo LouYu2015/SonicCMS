@@ -55,7 +55,7 @@ class JetImageProducer : public SonicEDProducer<Client>
 
 			// create a jet image for the leading jet in the event
 			// 224 x 224 image which is centered at the jet axis and +/- 1 unit in eta and phi
-			std::vector<float> img(client_.ninput(),0.f);
+			std::vector<float> img(224*224*3,0.f);
 			const unsigned npix = 224;
 			float pixel_width = 2./float(npix);
 
@@ -92,11 +92,9 @@ class JetImageProducer : public SonicEDProducer<Client>
 				//////////////////////////////
 			}
 
-			iInput = Input(client_.ninput()*client_.batchSize(),0.f);
-			for(unsigned i0 = 0; i0 < client_.batchSize(); i0++ ) { 
-				for(unsigned i1 = 0; i1 < client_.ninput(); i1++) {
-					iInput[client_.ninput()*i0+i1] = img[i1];
-				}
+			iInput = Input(224*224*3,0.f);
+			for(unsigned i1 = 0; i1 < 224*224*3; i1++) {
+				iInput[i1] = img[i1];
 			}
 		}
 		void produce(edm::Event& iEvent, edm::EventSetup const& iSetup, Output const& iOutput) override {
