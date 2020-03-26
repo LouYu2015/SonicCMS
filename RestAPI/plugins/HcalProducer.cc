@@ -86,13 +86,13 @@ class HcalProducer : public SonicEDProducer<Client>
 };
 
 typedef HcalProducer<TRTClientSync> HcalProducerSync;
-typedef HcalProducer<TRTClientAsync> HcalProducerAsync;
-typedef HcalProducer<TRTClientPseudoAsync> HcalProducerPseudoAsync;
+// typedef HcalProducer<TRTClientAsync> HcalProducerAsync;
+// typedef HcalProducer<TRTClientPseudoAsync> HcalProducerPseudoAsync;
 
 template<> std::string HcalProducerSync::getCfiName() { return "HcalProducerSync"; }
-template<> std::string HcalProducerAsync::getCfiName() { return "HcalProducerAsync"; }
-template<> std::string HcalProducerPseudoAsync::getCfiName() { return "HcalProducerPseudoAsync"; }
+// template<> std::string HcalProducerAsync::getCfiName() { return "HcalProducerAsync"; }
+// template<> std::string HcalProducerPseudoAsync::getCfiName() { return "HcalProducerPseudoAsync"; }
 
 DEFINE_FWK_MODULE(HcalProducerSync);
-DEFINE_FWK_MODULE(HcalProducerAsync);
-DEFINE_FWK_MODULE(HcalProducerPseudoAsync);
+// DEFINE_FWK_MODULE(HcalProducerAsync);
+// DEFINE_FWK_MODULE(HcalProducerPseudoAsync);

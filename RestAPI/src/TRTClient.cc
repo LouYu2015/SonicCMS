@@ -25,11 +25,7 @@ void TRTClient<Client>::predictImpl(){
 	// getResults(results.begin()->second);
 }
 
-template <>
-void TRTClientAsync::predictImpl(){
-}
-
 //explicit template instantiations
 template class TRTClient<SonicClientSync<std::vector<float>>>;
-template class TRTClient<SonicClientAsync<std::vector<float>>>;
-template class TRTClient<SonicClientPseudoAsync<std::vector<float>>>;
+// template class TRTClient<SonicClientAsync<std::vector<float>>>;
+// template class TRTClient<SonicClientPseudoAsync<std::vector<float>>>;

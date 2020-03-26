@@ -146,14 +146,14 @@ class JetImageProducer : public SonicEDProducer<Client>
 };
 
 typedef JetImageProducer<TRTClientSync> JetImageProducerSync;
-typedef JetImageProducer<TRTClientAsync> JetImageProducerAsync;
-typedef JetImageProducer<TRTClientPseudoAsync> JetImageProducerPseudoAsync;
+// typedef JetImageProducer<TRTClientAsync> JetImageProducerAsync;
+// typedef JetImageProducer<TRTClientPseudoAsync> JetImageProducerPseudoAsync;
 
 template<> std::string JetImageProducerSync::getCfiName() { return "JetImageProducerSync"; }
-template<> std::string JetImageProducerAsync::getCfiName() { return "JetImageProducerAsync"; }
-template<> std::string JetImageProducerPseudoAsync::getCfiName() { return "JetImageProducerPseudoAsync"; }
+// template<> std::string JetImageProducerAsync::getCfiName() { return "JetImageProducerAsync"; }
+// template<> std::string JetImageProducerPseudoAsync::getCfiName() { return "JetImageProducerPseudoAsync"; }
 
 DEFINE_FWK_MODULE(JetImageProducerSync);
-DEFINE_FWK_MODULE(JetImageProducerAsync);
-DEFINE_FWK_MODULE(JetImageProducerPseudoAsync);
+// DEFINE_FWK_MODULE(JetImageProducerAsync);
+// DEFINE_FWK_MODULE(JetImageProducerPseudoAsync);
 
