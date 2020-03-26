@@ -1,6 +1,6 @@
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
 #include "FWCore/Utilities/interface/Exception.h"
-#include "SonicCMS/TensorRT/interface/TRTClient.h"
+#include "SonicCMS/RestAPI/interface/TRTClient.h"
 
 #include <string>
 #include <chrono>
