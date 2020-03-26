@@ -5,7 +5,5 @@
 <use   name="FWCore/Framework"/>
 <use   name="FWCore/PluginManager"/>
 <use   name="SonicCMS/Core"/>
-<use   name="SonicCMS/TensorRT"/>
-<use   name="tensorrtis"/>
-<use   name="protobuf-trt"/>
+<use   name="SonicCMS/RestAPI"/>
 <flags   EDM_PLUGIN="1"/>
