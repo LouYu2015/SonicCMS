@@ -36,7 +36,7 @@ class TRTClient : public Client {
 		unsigned timeout_;
 };
 typedef TRTClient<SonicClientSync<std::vector<float>>> TRTClientSync;
-// typedef TRTClient<SonicClientPseudoAsync<std::vector<float>>> TRTClientPseudoAsync;
-// typedef TRTClient<SonicClientAsync<std::vector<float>>> TRTClientAsync;
+typedef TRTClient<SonicClientPseudoAsync<std::vector<float>>> TRTClientPseudoAsync;
+typedef TRTClient<SonicClientAsync<std::vector<float>>> TRTClientAsync;
 
 #endif
