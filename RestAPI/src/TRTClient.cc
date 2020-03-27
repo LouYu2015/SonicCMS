@@ -5,16 +5,20 @@
 #include <string>
 #include <chrono>
 #include <exception>
+#include <iostream>
 
 template <typename Client>
 TRTClient<Client>::TRTClient(const edm::ParameterSet& params) :
 	Client(),
-	url_(params.getParameter<std::string>("address")+":"+std::to_string(params.getParameter<unsigned>("port")))
+	url_(std::string() + "http://" + params.getParameter<std::string>("address")+":"
+		+std::to_string(params.getParameter<unsigned>("port") + "/predict"))
 {
 }
 
 template <typename Client>
 void TRTClient<Client>::predictImpl(){
+
+	std::cout << "prediction to " + url_ << std::endl;
 
 	//blocking call
 	// auto t2 = std::chrono::high_resolution_clock::now();
