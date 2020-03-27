@@ -18,7 +18,7 @@ BaseClient::BaseClient(const std::string fileName, const std::string serverURL)
   requestData = std::vector<char>(start, end);
 }
 
-BaseClient::BaseClient(const std::vector<float>, const std::string serverURL)
+BaseClient::BaseClient(const std::vector<float> requestData, const std::string serverURL)
     : serverURL(serverURL) {
   std::string request;
   for (float elem : requestData) {
