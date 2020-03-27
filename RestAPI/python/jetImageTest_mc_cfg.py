@@ -10,7 +10,7 @@ options.register("timeout", 30, VarParsing.multiplicity.singleton, VarParsing.va
 options.register("params", "", VarParsing.multiplicity.singleton, VarParsing.varType.string)
 # options.register("threads", 1, VarParsing.multiplicity.singleton, VarParsing.varType.int)
 # options.register("streams", 0,    VarParsing.multiplicity.singleton, VarParsing.varType.int)
-# options.register("batchsize", 10,    VarParsing.multiplicity.singleton, VarParsing.varType.int)
+options.register("batchsize", 10,    VarParsing.multiplicity.singleton, VarParsing.varType.int)
 # options.register("modelname","resnet50_netdef", VarParsing.multiplicity.singleton, VarParsing.varType.string)
 # options.register("modelname","resnet50_ensemble", VarParsing.multiplicity.singleton, VarParsing.varType.string)
 options.register("mode","Sync", VarParsing.multiplicity.singleton, VarParsing.varType.string)
@@ -57,7 +57,7 @@ process.jetImageProducer = cms.EDProducer(allowed_modes[options.mode],
     Client = cms.PSet(
         # ninput  = cms.uint32(15),
         # noutput = cms.uint32(1),
-        # batchSize = cms.uint32(options.batchsize),
+        batchSize = cms.uint32(options.batchsize),
         address = cms.string(options.address),
         port = cms.uint32(options.port),
         timeout = cms.uint32(options.timeout),

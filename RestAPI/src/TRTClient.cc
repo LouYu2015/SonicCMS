@@ -12,7 +12,8 @@ template <typename Client>
 TRTClient<Client>::TRTClient(const edm::ParameterSet& params) :
 	Client(),
 	url_(std::string() + "http://" + params.getParameter<std::string>("address")+":"
-		+std::to_string(params.getParameter<unsigned>("port")) + "/predict")
+		+std::to_string(params.getParameter<unsigned>("port")) + "/predict"),
+	batchSize_(params.getParameter<unsigned>("batchSize"))
 {
 }
 

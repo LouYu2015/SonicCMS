@@ -17,11 +17,12 @@ class TRTClient : public Client {
 		TRTClient(const edm::ParameterSet& params);
 		unsigned ninput() const {return 1;}
 		unsigned noutput() const {return 1000;}
-		unsigned batchSize() const {return 1;}
+		unsigned batchSize() const { return batchSize_; }
 
 		//for fillDescriptions
 		static void fillPSetDescription(edm::ParameterSetDescription& iDesc) {
 			edm::ParameterSetDescription descClient;
+			descClient.add<unsigned>("batchSize");
 			descClient.add<std::string>("address");
 			descClient.add<unsigned>("port");
 			descClient.add<unsigned>("timeout");
@@ -33,7 +34,7 @@ class TRTClient : public Client {
 
 		//members
 		std::string url_;
-		unsigned timeout_;
+		unsigned batchSize_;
 };
 typedef TRTClient<SonicClientSync<std::vector<float>>> TRTClientSync;
 // typedef TRTClient<SonicClientPseudoAsync<std::vector<float>>> TRTClientPseudoAsync;
