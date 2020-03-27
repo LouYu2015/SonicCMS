@@ -11,14 +11,16 @@ class BaseClient {
     std::vector<char> requestData;
     bool requestSent = false;
     std::string response;
+    std::string serverURL;
 
     static size_t handle_data(const char *data, size_t n, size_t l, void *userp);
 
   public:
     void sendRequest();
-    BaseClient(const std::string fileName);
-    BaseClient(const std::vector<char> requestData) : requestData(requestData) {};
-    BaseClient(const std::vector<float> requestData);
+    BaseClient(const std::string fileName, const std::string serverURL);
+    BaseClient(const std::vector<char> requestData, const std::string serverURL)
+    : serverURL(serverURL), requestData(requestData) {};
+    BaseClient(const std::vector<float> requestData, const std::string serverURL);
     std::string getReply();
 };
 

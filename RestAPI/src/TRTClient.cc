@@ -1,6 +1,7 @@
 #include "FWCore/MessageLogger/interface/MessageLogger.h"
 #include "FWCore/Utilities/interface/Exception.h"
 #include "SonicCMS/RestAPI/interface/TRTClient.h"
+#include "SonicCMS/RestAPI/interface/BaseRestClient.h"
 
 #include <string>
 #include <chrono>
@@ -17,16 +18,14 @@ TRTClient<Client>::TRTClient(const edm::ParameterSet& params) :
 
 template <typename Client>
 void TRTClient<Client>::predictImpl(){
-
 	std::cout << "prediction to " + url_ << std::endl;
+	auto t2 = std::chrono::high_resolution_clock::now();
 
-	//blocking call
-	// auto t2 = std::chrono::high_resolution_clock::now();
-	// std::map<std::string, std::unique_ptr<nic::InferContext::Result>> results;
-	// nic::Error err0 = context_->Run(&results);
-	// auto t3 = std::chrono::high_resolution_clock::now();
-	// edm::LogInfo("TRTClient") << "Remote time: " << std::chrono::duration_cast<std::chrono::microseconds>(t3-t2).count();
-	// getResults(results.begin()->second);
+	RestAPIClient::BaseClient client(input_, url_);
+	client.getReply();
+
+	auto t3 = std::chrono::high_resolution_clock::now();
+	edm::LogInfo("TRTClient") << "Remote time: " << std::chrono::duration_cast<std::chrono::microseconds>(t3-t2).count();
 }
 
 //explicit template instantiations

@@ -3,12 +3,12 @@
 #include <fstream>
 #include <iterator>
 
-#include "BaseRestClient.h"
-#include "Config.cpp"
+#include "SonicCMS/RestAPI/interface/BaseRestClient.h"
 
 namespace RestAPIClient {
 
-BaseClient::BaseClient(const std::string fileName) {
+BaseClient::BaseClient(const std::string fileName, const std::string serverURL)
+    : serverURL(serverURL) {
   std::ifstream file(fileName);
   if (!file) {
     throw new std::runtime_error(std::string("Rest API Client: failed to open file ") + fileName);
@@ -18,7 +18,8 @@ BaseClient::BaseClient(const std::string fileName) {
   requestData = std::vector<char>(start, end);
 }
 
-BaseClient::BaseClient(const std::vector<float> requestData) {
+BaseClient::BaseClient(const std::vector<float>, const std::string serverURL)
+    : serverURL(serverURL) {
   std::string request;
   for (float elem : requestData) {
     char *str;
@@ -50,7 +51,7 @@ void BaseClient::sendRequest() {
   }
 
   // Set URL
-  curl_easy_setopt(curl, CURLOPT_URL, Config::SERVER_URL.c_str());
+  curl_easy_setopt(curl, CURLOPT_URL, serverURL.c_str());
 
   // Set handler
   curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, &handle_data);
