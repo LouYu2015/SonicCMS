@@ -23,7 +23,7 @@ BaseClient::BaseClient(const std::vector<float> requestData, const std::string s
   std::string request;
   for (float elem : requestData) {
     char *str;
-    asprintf(&str, "%e", elem);
+    asprintf(&str, "%g", (double)elem);
     request += str;
     free(str);
     request += ',';
