@@ -93,7 +93,7 @@ class JetImageProducer : public SonicEDProducer<Client>
 			}
 
 			iInput = Input(224 * 224 * 3 * client_.batchSize(), 0.f);
-			for (int nbatch = 0; nbatch < client_.batchSize(); nbatch++) {
+			for (unsigned nbatch = 0; nbatch < client_.batchSize(); nbatch++) {
 				for(unsigned i1 = 0; i1 < 224*224*3; i1++) {
 					iInput[224*224*3*nbatch + i1] = img[i1];
 				}
