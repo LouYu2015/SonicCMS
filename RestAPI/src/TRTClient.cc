@@ -21,7 +21,7 @@ void TRTClient<Client>::predictImpl(){
 	std::cout << "prediction to " + url_ << std::endl;
 	auto t2 = std::chrono::high_resolution_clock::now();
 
-	RestAPIClient::BaseClient client(input_, url_);
+	RestAPIClient::BaseClient client(input(), url_);
 	client.getReply();
 
 	auto t3 = std::chrono::high_resolution_clock::now();
